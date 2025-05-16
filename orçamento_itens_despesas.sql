@@ -1,4 +1,4 @@
-SELECT c.seqpessoa, c.fantasia fornecedor, b.codproduto, b.descricao, sum(b.quantidade) quantidade, sum(b.vlrtotal - coalesce(b.vlrdesconto, 0)) total
+SELECT c.seqpessoa, c.fantasia fornecedor, b.codproduto, b.descricao, sum(b.quantidade) quantidade, to_char(sum(b.vlrtotal - coalesce(b.vlrdesconto, 0)),'FM99999D90') total
        FROM consinco.Or_Nfdespesa a
        JOIN consinco.or_nfitensdespesa b
             ON a.seqnota = b.seqnota
